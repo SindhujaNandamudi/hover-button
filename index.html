@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: lightpink;
+    }
+    .container {
+        text-align: center;
+    }
+    h1 {
+        color: #CC0066;
+    }
+    button {
+        background-color: #CC0066;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 30px; 
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    #yesButton {
+	position: absolute;
+        top: 70%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
+    #noButton {
+	position: absolute;
+        top: 70%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Do you love me???</h1>
+    <img src="love.gif" alt="GIF" width="200">
+    <br>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+</div>
+
+<script>
+    document.getElementById('yesButton').addEventListener('click', function() {
+        window.location.href = 'loved.html'; // Redirect to loved.html if "Yes" is clicked
+    });
+
+    var button = document.getElementById('noButton');
+    button.addEventListener('mouseover', moveButton);
+
+    function moveButton() {
+        var newX = Math.random() * (window.innerWidth - button.offsetWidth);
+        var newY = Math.random() * (window.innerHeight - button.offsetHeight);
+        button.style.left = newX + 'px';
+        button.style.top = newY + 'px';
+        
+        // Re-attach event listener after moving
+        button.addEventListener('mouseover', moveButton);
+    }
+</script>
+
+</body>
+</html>
